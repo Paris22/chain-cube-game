@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace ChainCube.Scripts.Utils
 {
-    [RequireComponent(typeof(ISwipeDetector))]
+    // [RequireComponent(typeof(ISwipeDetector))]
     public class CubeSpawner : MonoBehaviour
     {
         [SerializeField] private float _spawnDelay = 0.3f;
@@ -14,13 +14,13 @@ namespace ChainCube.Scripts.Utils
 
         private CubeDependencyInjector[] _cubeDependencies;
         
-        private ISwipeDetector _swipeDetector;
+        private MouseSwipeDetector _swipeDetector;
 
         private Coroutine _spawnRoutine;
         
         private void Start()
         {
-            _swipeDetector = _swipeDetectorObject.GetComponent<ISwipeDetector>();
+            _swipeDetector = _swipeDetectorObject.GetComponent<MouseSwipeDetector>();
             _cubeDependencies = FindObjectsOfType<CubeDependencyInjector>();
             Subscribe();
         }
